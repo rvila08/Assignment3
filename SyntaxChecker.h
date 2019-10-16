@@ -19,6 +19,7 @@ private:
   ifstream fileStream;
   bool QuotePair = false;
   int lineCount = 0;
+  bool errorFound = false;
 
 
 };

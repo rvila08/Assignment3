@@ -40,9 +40,14 @@ int SyntaxChecker::countDelims(){
       delimiters *curr = delimStack.myArray[i];
       if(curr->foundMatch == false){      //if any of the delimiters do not have a match - return print error
         printError(curr->delimVal, curr->delimLC);
+        errorFound = true;
+        exit(EXIT_FAILURE);
       }
     }
-
+    if(errorFound == false){
+      cout << "No syntax errors found. Good job!" << endl;
+      exit(0);
+    }
 }
 
 void SyntaxChecker::storeDelim(char letters, int lineCount){
